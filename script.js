@@ -112,6 +112,22 @@ $(document).ready(function () {
         }).then(function (data) {
             console.log(data)
 
+            let uv = $('<div>').text('UV Index: ');
+            let button = $('<span>').addClass('btn btn sm').text(data.value);
+
+            // color change 
+            if (data.value < 3) {
+                button.addClass('btn-success');
+            }
+            else if (data.value < 7) {
+                button.addClass('btn-warning');
+            }
+            else {
+                button.addClass('btn-danger');
+            }
+
+            $('#today .card-body').append(uv.append(button));
+
         });
     }
 
