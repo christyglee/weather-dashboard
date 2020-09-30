@@ -28,7 +28,8 @@ $(document).ready(function () {
     function weatherReport(searchInput) {
         // AJAX call
         $.ajax({
-            url: "http://api.openweathermap.org/data/2.5/weather?q=" + searchInput + "&appid=3f93d38aeb608fadb9535673724748b9&units=imperial",
+            //Updated url to https:// to try to fix deployed link error
+            url: "https://api.openweathermap.org/data/2.5/weather?q=" + searchInput + "&appid=3f93d38aeb608fadb9535673724748b9&units=imperial",
             method: 'GET',
 
         }).then(function (data) {
@@ -73,7 +74,8 @@ $(document).ready(function () {
     function forecast(searchInput) {
         // AJAX call
         $.ajax({
-            url: "http://api.openweathermap.org/data/2.5/forecast?q=" + searchInput + "&appid=3f93d38aeb608fadb9535673724748b9&units=imperial",
+            //Updated url to https:// to try to fix deployed link error
+            url: "https://api.openweathermap.org/data/2.5/forecast?q=" + searchInput + "&appid=3f93d38aeb608fadb9535673724748b9&units=imperial",
             method: 'GET',
             
         }).then(function (data) {
@@ -107,7 +109,8 @@ $(document).ready(function () {
         console.log(`${lat} ${lon}`)
         // AJAX call
         $.ajax({
-            url: "http://api.openweathermap.org/data/2.5/uvi?&lat=" + lat + "&lon=" + lon + "&appid=3f93d38aeb608fadb9535673724748b9&units=imperial",
+            //Updated url to https:// to try to fix deployed link error
+            url: "https://api.openweathermap.org/data/2.5/uvi?&lat=" + lat + "&lon=" + lon + "&appid=3f93d38aeb608fadb9535673724748b9&units=imperial",
             method: 'GET',
 
         }).then(function (data) {
