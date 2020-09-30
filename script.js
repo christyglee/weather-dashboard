@@ -30,7 +30,6 @@ $(document).ready(function () {
         $.ajax({
             url: "http://api.openweathermap.org/data/2.5/weather?q=" + searchInput + "&appid=3f93d38aeb608fadb9535673724748b9&units=imperial",
             method: 'GET',
-            // dataType: 'json',
 
         }).then(function (data) {
             // console.log(data);
@@ -70,6 +69,32 @@ $(document).ready(function () {
             
         });
     }
+
+    function forecast(searchInput) {
+        // AJAX call
+        $.ajax({
+            url: "http://api.openweathermap.org/data/2.5/forecast?q=" + searchInput + "&appid=3f93d38aeb608fadb9535673724748b9&units=imperial",
+            method: 'GET',
+            
+        }).then(function (data) {
+            // console.log(data);
+
+            // empty out old data
+            $('#today').empty();
+
+            if (history.indexOf(searchInput) === -1) {
+                history.push(searchInput);
+                localStorage.setItem('history', JSON.stringify(history));
+
+                searchHistory(searchInput);
+            }
+       
+
+        });
+    }
+    
+
+
 
 });
 
