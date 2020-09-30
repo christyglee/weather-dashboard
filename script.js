@@ -77,19 +77,15 @@ $(document).ready(function () {
             method: 'GET',
             
         }).then(function (data) {
-            // console.log(data);
+            console.log(data);
+            //create divs in html and append
+            $('#forecast').html('<h4 class=\"mt-3\">5-Day Forecast:</h4>').append('<div class=\'row\'>');
 
-            // empty out old data
-            $('#today').empty();
+            //for loop
+            for (let i = 0; i < data.list.length; i++) {
 
-            if (history.indexOf(searchInput) === -1) {
-                history.push(searchInput);
-                localStorage.setItem('history', JSON.stringify(history));
 
-                searchHistory(searchInput);
             }
-       
-
         });
     }
     
