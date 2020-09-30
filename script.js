@@ -84,12 +84,27 @@ $(document).ready(function () {
             //for loop
             for (let i = 0; i < data.list.length; i++) {
 
+                if (data.list[i].dt_txt.indexOf('15:00:00') !== -1) {
+                    
+                    // html elements
+                    let column = $('<div>').addClass('col-md-2');
+                    let card = $('<div>').addClass('card bg-primary text-white');
+                    let body = $('<div>').addClass('card-body p-2');
+                    let title = $('<h5>').addClass('card-title').text(new Date(data.list[i].dt_txt).toLocaleDateString());
+                    let image = $('<img>').attr('src', 'http://openweathermap.org/img/w/' + data.list[i].weather[0].icon + '.png');
 
+                    // need to convert to fahrenheit calculation
+                    let tempurature = $('<p>').addClass('card-text').text('Tempurature: ' + data.list[i].main.temp_max + ' °F');
+                    let humidity = $('<p>').addClass('card-text').text('Humidity: ' + data.list[i].main.humidity + "%");
+
+                    column.append(card.append(body.append(title, image, tempurature, humidity)));
+                    //create new frow for colmun to append to
+                    $('#forecast .row').append(column);
+                }
             }
         });
     }
     
-
 
 
 });
