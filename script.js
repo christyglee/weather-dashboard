@@ -69,7 +69,7 @@ $(document).ready(function () {
             
         });
     }
-
+    //define forecast function
     function forecast(searchInput) {
         // AJAX call
         $.ajax({
@@ -102,6 +102,7 @@ $(document).ready(function () {
             }
         });
     }
+    //define uv index
     function uvIndex(lat, lon) {
         console.log(`${lat} ${lon}`)
         // AJAX call
@@ -129,6 +130,13 @@ $(document).ready(function () {
             $('#today .card-body').append(uv.append(button));
 
         });
+    }
+
+    // history 
+    let history = JSON.parse(localStorage.getItem('history')) || [];
+    
+    for (let i = 0; i < history.length; i++) {
+        searchHistory(history[i]);
     }
 
 });
