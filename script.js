@@ -11,7 +11,7 @@ $(document).ready(function () {
 
     //event listener for history
     $(document).on('click', '.list-group-item', function () {
-        console.log('Clicked history!');
+        // console.log('Clicked history!');
         weatherReport($(this).text());
     });
 
@@ -108,7 +108,7 @@ $(document).ready(function () {
     }
     //define uv index
     function uvIndex(lat, lon) {
-        console.log(`${lat} ${lon}`)
+        // console.log(`${lat} ${lon}`)
         // AJAX call
         $.ajax({
             //Updated url to https:// to try to fix deployed link error
