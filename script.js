@@ -52,7 +52,8 @@ $(document).ready(function () {
             let humidity = $('<p>').addClass('card-text').text('Humidity: ' + data.main.humidity + "%");
             let tempurature = $('<p>').addClass('card-text').text('Tempurature: ' + data.main.temp + ' °F');
             let cardBody = $('<div>').addClass('card-body');
-            let image = $('<img>').attr('src', 'http://openweathermap.org/img/w/' + data.weather[0].icon + '.png');
+                                                //updated to https:// due to deployed link error
+            let image = $('<img>').attr('src', 'https://openweathermap.org/img/w/' + data.weather[0].icon + '.png');
 
             //append to the page
             title.append(image);
@@ -93,7 +94,8 @@ $(document).ready(function () {
                     let card = $('<div>').addClass('card bg-primary text-white');
                     let body = $('<div>').addClass('card-body p-2');
                     let title = $('<h5>').addClass('card-title').text(new Date(data.list[i].dt_txt).toLocaleDateString());
-                    let image = $('<img>').attr('src', 'http://openweathermap.org/img/w/' + data.list[i].weather[0].icon + '.png');
+                                                        //updated to https:// due to deployed link error
+                    let image = $('<img>').attr('src', 'https://openweathermap.org/img/w/' + data.list[i].weather[0].icon + '.png');
                     let tempurature = $('<p>').addClass('card-text').text('Tempurature: ' + data.list[i].main.temp_max + ' °F');
                     let humidity = $('<p>').addClass('card-text').text('Humidity: ' + data.list[i].main.humidity + "%");
 
