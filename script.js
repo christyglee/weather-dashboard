@@ -92,8 +92,6 @@ $(document).ready(function () {
                     let body = $('<div>').addClass('card-body p-2');
                     let title = $('<h5>').addClass('card-title').text(new Date(data.list[i].dt_txt).toLocaleDateString());
                     let image = $('<img>').attr('src', 'http://openweathermap.org/img/w/' + data.list[i].weather[0].icon + '.png');
-
-                    // need to convert to fahrenheit calculation
                     let tempurature = $('<p>').addClass('card-text').text('Tempurature: ' + data.list[i].main.temp_max + ' °F');
                     let humidity = $('<p>').addClass('card-text').text('Humidity: ' + data.list[i].main.humidity + "%");
 
@@ -104,8 +102,18 @@ $(document).ready(function () {
             }
         });
     }
-    
+    function uvIndex(lat, lon) {
+        console.log(`${lat} ${lon}`)
+        // AJAX call
+        $.ajax({
+            url: "http://api.openweathermap.org/data/2.5/uvi?&lat=" + lat + "&lon=" + lon + "&appid=3f93d38aeb608fadb9535673724748b9&units=imperial",
+            method: 'GET',
 
+        }).then(function (data) {
+            console.log(data)
+
+        });
+    }
 
 });
 
